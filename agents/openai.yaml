@@ -1,0 +1,4 @@
+interface:
+  display_name: "Computer Use Workspace"
+  short_description: "Place and clean up Computer Use app windows"
+  default_prompt: "Use $computer-use-workspace to place and clean up task-owned Mac application windows safely."

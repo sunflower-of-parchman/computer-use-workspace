@@ -1,0 +1,5 @@
+.DS_Store
+scripts/.build/
+*.log
+.env
+.env.*
