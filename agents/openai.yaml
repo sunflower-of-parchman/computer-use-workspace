@@ -1,4 +1,4 @@
 interface:
   display_name: "Computer Use Workspace"
-  short_description: "Place and clean up Computer Use app windows"
-  default_prompt: "Use $computer-use-workspace to place and clean up task-owned Mac application windows safely."
+  short_description: "Preflight, place, prove, and clean up Mac app windows"
+  default_prompt: "Use $computer-use-workspace to preflight a safe multi-app layout, place and prove each task window, restore focus, and clean up only task-owned resources."

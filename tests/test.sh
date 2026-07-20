@@ -3,29 +3,41 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SOURCE="${REPO_DIR}/scripts/computer-use-workspace.swift"
-TEST_DIR="$(mktemp -d /private/tmp/computer-use-workspace-test.XXXXXX)"
-
-cleanup() {
-  rm -rf "${TEST_DIR}"
-}
-trap cleanup EXIT
+BINARY="${REPO_DIR}/scripts/.build/computer-use-workspace-cli"
+SOURCE_FINGERPRINT="${REPO_DIR}/scripts/.build/source.sha256"
 
 bash -n \
   "${REPO_DIR}/scripts/computer-use-workspace" \
   "${REPO_DIR}/scripts/build.sh" \
   "${REPO_DIR}/tests/test.sh"
 
-swiftc -typecheck -module-cache-path "${TEST_DIR}/module-cache" "${SOURCE}"
-swiftc -O -module-cache-path "${TEST_DIR}/module-cache" -o "${TEST_DIR}/computer-use-workspace-cli" "${SOURCE}"
+if [[ ! -x "${BINARY}" || ! -f "${SOURCE_FINGERPRINT}" ]]; then
+  echo "Build the helper before testing: bash scripts/build.sh" >&2
+  exit 70
+fi
 
-SELF_TEST_OUTPUT="$("${TEST_DIR}/computer-use-workspace-cli" self-test)"
+EXPECTED_FINGERPRINT="$(shasum -a 256 "${SOURCE}" | awk '{print $1}')"
+ACTUAL_FINGERPRINT="$(<"${SOURCE_FINGERPRINT}")"
+if [[ "${EXPECTED_FINGERPRINT}" != "${ACTUAL_FINGERPRINT}" ]]; then
+  echo "The built helper does not match the current Swift source. Run bash scripts/build.sh." >&2
+  exit 70
+fi
+
+SELF_TEST_OUTPUT="$("${BINARY}" self-test)"
 printf '%s\n' "${SELF_TEST_OUTPUT}"
 printf '%s\n' "${SELF_TEST_OUTPUT}" | grep -q '"ok" : true'
 printf '%s\n' "${SELF_TEST_OUTPUT}" | grep -q '"status" : "passed"'
-printf '%s\n' "${SELF_TEST_OUTPUT}" | grep -q '10 placement and cleanup scenarios passed'
+printf '%s\n' "${SELF_TEST_OUTPUT}" | grep -q '59 placement and cleanup scenarios passed'
 
 grep -q '^name: computer-use-workspace$' "${REPO_DIR}/SKILL.md"
 grep -q '\$computer-use-workspace' "${REPO_DIR}/agents/openai.yaml"
+grep -q '^# Security Policy$' "${REPO_DIR}/SECURITY.md"
+
+SOCIAL_PREVIEW="${REPO_DIR}/.github/social-preview.jpg"
+test -f "${SOCIAL_PREVIEW}"
+test "$(sips -g pixelWidth "${SOCIAL_PREVIEW}" | awk '/pixelWidth/ {print $2}')" = "1280"
+test "$(sips -g pixelHeight "${SOCIAL_PREVIEW}" | awk '/pixelHeight/ {print $2}')" = "640"
+test "$(stat -f%z "${SOCIAL_PREVIEW}")" -lt 1000000
 
 OLD_NAME="computer-use-smart""-launch"
 if rg -n "${OLD_NAME}" \
