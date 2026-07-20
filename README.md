@@ -2,10 +2,11 @@
 
 ![Computer Use Workspace](.github/social-preview.jpg)
 
-Computer Use Workspace is a Codex skill that extends Computer Use with a display-aware workspace lifecycle on macOS. It adds a repeatable technique for planning application layouts, placing task windows, restoring focus, and cleaning up the resources created during a task.
+Computer Use Workspace is a Codex skill that extends Computer Use with a display-aware workspace lifecycle on macOS. It adds a repeatable technique for planning application layouts, placing task windows, restoring focus, and cleaning up the resources created during a task. Before launch, it surveys the available space across every active display, including a laptop screen and connected external displays.
 
 ## What It Does
 
+- Surveys available space across all active displays before launch.
 - Plans the complete multi-application layout before launch.
 - Places and verifies each new task window.
 - Adapts the remaining layout to each application's actual launch size.
@@ -16,12 +17,24 @@ Computer Use Workspace is a Codex skill that extends Computer Use with a display
 ## Requirements
 
 - macOS
-- Swift toolchain
+- Xcode Command Line Tools (full Xcode is not required)
 - Codex with Computer Use
 - Screen Recording permission
 - Accessibility permission
 
 ## Install
+
+The helper is compiled locally from the included Swift source. Confirm that the Swift compiler is available:
+
+```bash
+swiftc --version
+```
+
+If that command is unavailable, install Apple's Command Line Tools:
+
+```bash
+xcode-select --install
+```
 
 ```bash
 mkdir -p "$HOME/.codex/skills"
