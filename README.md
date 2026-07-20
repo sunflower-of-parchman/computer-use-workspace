@@ -6,8 +6,6 @@ Computer Use Workspace is a macOS lifecycle skill for Computer Use. It plans whe
 
 It extends Computer Use without replacing it: Computer Use operates the application, while Computer Use Workspace manages the surrounding desktop. The current technique covers application-window placement and ownership-based cleanup. The project can hold additional workspace techniques as they become concrete.
 
-> **Release status:** Computer Use Workspace `0.1.0` is ready for its first release. It supports verified single-window and multi-application workflows on macOS. Additional application, display, and macOS configurations will be tested as the project develops.
-
 ## What This Skill Is
 
 - A display-aware workspace lifecycle for Computer Use on macOS.
