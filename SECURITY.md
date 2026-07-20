@@ -2,7 +2,7 @@
 
 ## Supported version
 
-Security review currently covers the latest `0.1.0` release-candidate source on the default branch. No stable public release has been published.
+Security review currently covers the latest `0.1.0` release and the source on the default branch.
 
 ## Report a vulnerability
 

@@ -2,7 +2,7 @@
 
 ![Computer Use Workspace](.github/social-preview.jpg)
 
-Computer Use Workspace gives Computer Use a display-aware workspace on macOS. It finds safe space across active displays, places each task window, restores the user's focus, and manages cleanup for the resources created during the task.
+Computer Use Workspace is a Codex skill that extends Computer Use with a display-aware workspace lifecycle on macOS. It adds a repeatable technique for planning application layouts, placing task windows, restoring focus, and cleaning up the resources created during a task.
 
 ## What It Does
 

@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 - Release candidate
+## 0.1.0 - 2026-07-20
 
 - Established the `computer-use-workspace` project and skill identity.
 - Added display-aware placement reservations for Computer Use application windows.
