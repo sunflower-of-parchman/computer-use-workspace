@@ -6,7 +6,7 @@ Computer Use Workspace is a macOS lifecycle skill for Computer Use. It plans whe
 
 It extends Computer Use without replacing it: Computer Use operates the application, while Computer Use Workspace manages the surrounding desktop. The current technique covers application-window placement and ownership-based cleanup. The project can hold additional workspace techniques as they become concrete.
 
-> **Release status:** `0.1.0` release candidate. The core single-window and multi-application workflows are working on the development Mac. Public release still requires a license decision and broader macOS compatibility testing.
+> **Release status:** Computer Use Workspace `0.1.0` is ready for its first release. It supports verified single-window and multi-application workflows on macOS. Additional application, display, and macOS configurations will be tested as the project develops.
 
 ## What This Skill Is
 
@@ -201,10 +201,12 @@ Lifecycle state is stored locally in `/private/tmp` for the current macOS user w
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) for private vulnerability reporting. The release candidate is also reviewed with Codex Security before publication.
+See [SECURITY.md](SECURITY.md) for private vulnerability reporting. The codebase was reviewed with Codex Security during release preparation.
 
 ## Project Status
 
-The single-window and batch placement lifecycle works on the development Mac across a two-display setup. The helper supports compact embedded placement proof, automatic final batch proof with focus restoration, and batch cleanup finalization. Broader macOS versions, display arrangements, permission states, browsers, and applications still need coverage before a stable public release.
+The single-window and batch placement lifecycle works across the development Mac's two-display setup. The helper supports compact embedded placement proof, automatic final batch proof with focus restoration, and batch cleanup finalization. Additional macOS versions, display arrangements, permission states, browsers, and applications will be tested as the project develops.
 
-No public license has been selected. Until a license is added, the repository is source-available for review but is not ready for public reuse or distribution.
+## License
+
+MIT. See [LICENSE](LICENSE).
