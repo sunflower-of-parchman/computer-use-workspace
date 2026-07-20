@@ -4,6 +4,16 @@
 
 Computer Use Workspace is a Codex skill that extends Computer Use with a display-aware workspace lifecycle on macOS. It adds a repeatable technique for planning application layouts, placing task windows, restoring focus, and cleaning up the resources created during a task. Before launch, it surveys the available space across every active display, including a laptop screen and connected external displays.
 
+## Why Use It
+
+When a Computer Use task needs several applications, the windows become part of the work. Computer Use Workspace plans that workspace before anything opens. It finds room for the complete task across connected displays, keeps existing windows in place, returns you to the application you were using, and remembers exactly which resources belong to the task when it is time to clean up.
+
+## Examples
+
+- Arrange a browser, document viewer, and notes app for research without moving the windows already on your desktop.
+- Find room for task windows across a laptop screen and Studio Display while preserving the application you are actively using.
+- Open several applications as one coordinated workspace, leave them visible for review, or close only the task-created windows when the work is complete.
+
 ## What It Does
 
 - Surveys available space across all active displays before launch.
